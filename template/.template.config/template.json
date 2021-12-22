@@ -1,0 +1,22 @@
+{
+  "author": "MyJetEducation",
+  "classifications": [ "MyJetEducationService" ],
+  "name": "MyJetEducationService",
+  "identity": "MyJetEducationService",
+  "shortName": "myjeteducationservice",
+  "preferNameDirectory": "true",
+  "tags": {
+    "language": "C#"
+  },
+  "sourceName": "AssetsDictionary",
+  "symbols": {
+    "clientSecretsId": {
+      "type": "generated",
+      "generator": "guid",
+      "replaces": "user-secrets-id",
+      "parameters": {
+        "format":"N"
+      }
+    }
+  }
+}
