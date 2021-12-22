@@ -11,7 +11,7 @@ namespace Service.AssetsDictionary.Client
         {
             var factory = new AssetsDictionaryClientFactory(grpcServiceUrl);
 
-            builder.RegisterInstance(factory.GetHelloService()).As<IHelloService>().SingleInstance();
+            builder.RegisterInstance(factory.GetHelloService()).As<IAssetsDictionaryService>().SingleInstance();
         }
     }
 }

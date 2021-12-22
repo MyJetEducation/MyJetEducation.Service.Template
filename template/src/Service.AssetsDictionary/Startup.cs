@@ -36,7 +36,7 @@ namespace Service.AssetsDictionary
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcSchema<HelloService, IHelloService>();
+                endpoints.MapGrpcSchema<AssetsDictionaryService, IAssetsDictionaryService>();
 
                 endpoints.MapGrpcSchemaRegistry();
 

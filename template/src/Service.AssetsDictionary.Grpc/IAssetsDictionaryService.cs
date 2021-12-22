@@ -5,9 +5,9 @@ using Service.AssetsDictionary.Grpc.Models;
 namespace Service.AssetsDictionary.Grpc
 {
     [ServiceContract]
-    public interface IHelloService
+    public interface IAssetsDictionaryService
     {
         [OperationContract]
-        Task<HelloMessage> SayHelloAsync(HelloRequest request);
+        Task<HelloGrpcResponse> SayHelloAsync(HelloGrpcRequest grpcRequest);
     }
 }

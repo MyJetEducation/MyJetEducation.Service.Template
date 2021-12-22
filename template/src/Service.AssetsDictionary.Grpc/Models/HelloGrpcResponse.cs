@@ -3,9 +3,9 @@
 namespace Service.AssetsDictionary.Grpc.Models
 {
     [DataContract]
-    public class HelloRequest
+    public class HelloGrpcResponse
     {
         [DataMember(Order = 1)]
-        public string Name { get; set; }
+        public string Message { get; set; }
     }
 }
