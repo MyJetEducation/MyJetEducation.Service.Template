@@ -16,7 +16,7 @@ namespace TestApp
             Console.ReadLine();
 
             var factory = new AssetsDictionaryClientFactory("http://localhost:5001");
-            var client = factory.GetHelloService();
+            var client = factory.GetAssetsDictionaryService();
 
             var resp = await  client.SayHelloAsync(new HelloGrpcRequest(){Name = "Alex"});
             Console.WriteLine(resp?.Message);
