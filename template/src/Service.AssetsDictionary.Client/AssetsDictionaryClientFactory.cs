@@ -11,6 +11,6 @@ namespace Service.AssetsDictionary.Client
         {
         }
 
-        public IAssetsDictionaryService GetHelloService() => CreateGrpcService<IAssetsDictionaryService>();
+        public IAssetsDictionaryService GetAssetsDictionaryService() => CreateGrpcService<IAssetsDictionaryService>();
     }
 }
