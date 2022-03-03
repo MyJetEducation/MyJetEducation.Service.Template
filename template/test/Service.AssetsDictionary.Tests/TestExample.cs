@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Service.AssetsDictionary.Tests
 {
@@ -11,10 +10,8 @@ namespace Service.AssetsDictionary.Tests
         }
 
         [Test]
-        public void Test1()
+        public void Test()
         {
-            Console.WriteLine("Debug output");
-            Assert.Pass();
         }
     }
 }

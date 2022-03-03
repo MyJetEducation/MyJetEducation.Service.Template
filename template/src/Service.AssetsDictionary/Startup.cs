@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyJetWallet.Sdk.GrpcSchema;
+using MyJetWallet.Sdk.Postgres;
 using MyJetWallet.Sdk.Service;
 using Prometheus;
 using Service.AssetsDictionary.Grpc;
 using Service.AssetsDictionary.Modules;
+using Service.AssetsDictionary.Postgres;
 using Service.AssetsDictionary.Services;
+using Service.Core.Client.Constants;
+using Service.Grpc;
 using SimpleTrading.ServiceStatusReporterConnector;
 
 namespace Service.AssetsDictionary
@@ -19,9 +23,10 @@ namespace Service.AssetsDictionary
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.BindCodeFirstGrpc();
+            services.BindGrpc();
             services.AddHostedService<ApplicationLifetimeManager>();
-            services.AddMyTelemetry("ED-", Program.Settings.ZipkinUrl);
+            services.AddMyTelemetry(Configuration.TelemetryPrefix, Program.Settings.ZipkinUrl);
+            services.AddDatabase(DatabaseContext.Schema, Program.Settings.PostgresConnectionString, options => new DatabaseContext(options));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,9 +42,7 @@ namespace Service.AssetsDictionary
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcSchema<AssetsDictionaryService, IAssetsDictionaryService>();
-
                 endpoints.MapGrpcSchemaRegistry();
-
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909"); });
             });
         }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyJetWallet.Sdk.Postgres;
 using MyJetWallet.Sdk.Service;
-using Service.AssetsDictionary.Domain.Models;
+using Service.AssetsDictionary.Postgres.Models;
 
 namespace Service.AssetsDictionary.Postgres
 {

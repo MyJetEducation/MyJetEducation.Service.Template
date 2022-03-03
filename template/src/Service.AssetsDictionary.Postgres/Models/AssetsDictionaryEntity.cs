@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Service.AssetsDictionary.Domain.Models
+﻿namespace Service.AssetsDictionary.Postgres.Models
 {
     public class AssetsDictionaryEntity
     {

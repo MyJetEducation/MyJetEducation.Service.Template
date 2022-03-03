@@ -1,16 +1,17 @@
 ﻿using JetBrains.Annotations;
-using MyJetWallet.Sdk.Grpc;
+using Microsoft.Extensions.Logging;
 using Service.AssetsDictionary.Grpc;
+using Service.Grpc;
 
 namespace Service.AssetsDictionary.Client
 {
     [UsedImplicitly]
-    public class AssetsDictionaryClientFactory : MyGrpcClientFactory
+    public class AssetsDictionaryClientFactory : GrpcClientFactory
     {
-        public AssetsDictionaryClientFactory(string grpcServiceUrl) : base(grpcServiceUrl)
+        public AssetsDictionaryClientFactory(string grpcServiceUrl, ILogger logger) : base(grpcServiceUrl, logger)
         {
         }
 
-        public IAssetsDictionaryService GetAssetsDictionaryService() => CreateGrpcService<IAssetsDictionaryService>();
+        public IGrpcServiceProxy<IAssetsDictionaryService> GetAssetsDictionaryService() => CreateGrpcService<IAssetsDictionaryService>();
     }
 }
